@@ -20,7 +20,7 @@ body {
 }
 .linner {
   font-family: "Righteous", cursive;
-  font-size: 25px;
+  font-size: 1.5rem;
   background-image: linear-gradient(to right, #3ca55c, #b5ac49);
   background-clip: text;
   -webkit-text-fill-color: transparent;
