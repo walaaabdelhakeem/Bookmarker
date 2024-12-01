@@ -3,13 +3,37 @@ var inputUrl = document.getElementById("site-url");
 var sites = [];
 sites = JSON.parse(localStorage.getItem("site")) || [];
 displaySites();
+var regname = /^[a-zA-Z0-9]{3,}/;
+
+inputName.addEventListener("input", function () {
+  if (regname.test(inputName.value)) {
+    inputName.classList.add("is-valid");
+    inputName.classList.remove("is-invalid");
+  } else {
+    inputName.classList.add("is-invalid");
+    inputName.classList.remove("is-valid");
+  }
+});
+inputUrl.addEventListener("input", function () {
+  if (isValidUrl(inputUrl.value)) {
+    inputUrl.classList.add("is-valid");
+    inputUrl.classList.remove("is-invalid");
+  } else {
+    inputUrl.classList.add("is-invalid");
+    inputUrl.classList.remove("is-valid");
+  }
+});
+
 function addInput() {
   var site = {
     namesite: inputName.value,
     Url: inputUrl.value,
   };
   var index = sites.findIndex(function (params) {
-    return params.namesite === inputName.value||params.namesite.toUpperCase()===inputName.value.toUpperCase();
+    return (
+      params.namesite === inputName.value ||
+      params.namesite.toUpperCase() === inputName.value.toUpperCase()
+    );
   });
   var validurl = isValidUrl(site.Url);
   if (index === -1) {
@@ -18,20 +42,21 @@ function addInput() {
       localStorage.setItem("site", JSON.stringify(sites));
       displaySites();
       clearInputsValue();
-      inputName.classList.remove("is-invalid");
-      inputUrl.classList.remove("is-invalid");
-
+      Swal.fire({
+        title: "Success!",
+        html: 'Your <span class="fw-bold">Bookmark</span> Is Added successfully.',
+        icon: "success",
+      });
     } else {
       swal(
         "URL OF Site strated  http:// or https:// and address like this example.com and path like this  /path/to/page"
       );
-      inputUrl.classList.add("is-invalid");
     }
   } else {
     alert("Site Name already exists!");
-    inputName.classList.add("is-invalid");
   }
 }
+
 function isValidUrl(string) {
   try {
     new URL(string);
@@ -63,10 +88,14 @@ function displaySites() {
   }
   document.getElementById("demo").innerHTML = cartona;
 }
+
 function clearInputsValue() {
   inputName.value = "";
   inputUrl.value = "";
+  inputName.classList.remove("is-valid");
+  inputUrl.classList.remove("is-valid");
 }
+
 function deletedItem(param) {
   sites.splice(param, 1);
   displaySites();
