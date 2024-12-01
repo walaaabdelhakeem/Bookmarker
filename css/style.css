@@ -1,0 +1,80 @@
+:root {
+  --font1: "Pacifico";
+  --color1: #f7ecde;
+  --color2: #fec260;
+  --btn-color: #d1512d;
+  --font2: "pt sans caption";
+}
+body {
+  background-color: var(--color1);
+}
+span {
+  font-family: var(--font1);
+  position: relative;
+  width: max-content;
+  font-size: 3rem;
+}
+.roww {
+  border-top: 1px dashed black;
+  border-bottom: 1px dashed black;
+}
+.linner {
+  font-family: "Righteous", cursive;
+  font-size: 25px;
+  background-image: linear-gradient(to right, #3ca55c, #b5ac49);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+span::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  background-color: var(--color2);
+  height: 25%;
+  left: 0;
+  bottom: 15px;
+  z-index: -1;
+  transition: all 400ms;
+}
+span:hover::after {
+  height: 50%;
+}
+label,
+input {
+  font-family: var(--font2);
+  font-weight: 600;
+  line-height: 24px;
+}
+.btn-color {
+  background-color: var(--btn-color);
+  color: white;
+}
+.btn-color:hover {
+  background-color: #99512d;
+  color: white;
+}
+.table-head {
+  font-weight: 700;
+  font-family: var(--font2);
+}
+.rerow {
+  border: 1px solid #dee2e6;
+}
+.btn-color-tb {
+  background-color: #9eb23b;
+  color: white;
+}
+.btn-delete {
+  background-color: #eb1d36;
+  color: white;
+}
+.btn-delete:hover {
+  color: white;
+  background-color: #d30820;
+  border-color: #d30820;
+}
+.btn-color-tb:hover {
+  background-color: #8a9e23;
+  color: white;
+  border-color: #8a9e23;
+}
