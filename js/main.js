@@ -48,8 +48,10 @@ function addInput() {
         icon: "success",
       });
     } else {
-      swal(
-        "URL OF Site strated  http:// or https:// and address like this example.com and path like this  /path/to/page"
+      Swal.fire(
+        title: "error!",
+         html: "URL OF Site strated  http:// or https:// and address like this example.com and path like this  /path/to/page"
+        icon: "error",
       );
     }
   } else {
