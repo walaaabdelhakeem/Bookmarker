@@ -48,11 +48,11 @@ function addInput() {
         icon: "success",
       });
     } else {
-      Swal.fire(
+      Swal.fire({
         title: "error!",
-         html: "URL OF Site strated  http:// or https:// and address like this example.com and path like this  /path/to/page"
+         html: "URL OF Site strated  http:// or https:// and address like this example.com and path like this  /path/to/page",
         icon: "error",
-      );
+        });
     }
   } else {
     alert("Site Name already exists!");
